@@ -11,6 +11,7 @@ import datetime
 from django.contrib.admin.views.decorators import staff_member_required
 from .forms import RenewAreaForm
 from django.views.generic.edit import CreateView, UpdateView, DeleteView, FormView
+from django.contrib.auth import login, logout
 
 
 def index(request):
@@ -30,11 +31,12 @@ def index(request):
 
 class RegisterList(FormView):
     form_class = UserCreationForm
-    success_url = "accounts/register/"
+    success_url = "/"
     template_name = "registration/register.html"
 
     def form_valid(self, form):
-        form.save()
+        user = form.save()
+        login(self.request, user)
         return super(RegisterList, self).form_valid(form)
 
     def form_invalid(self, form):
