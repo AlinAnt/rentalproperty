@@ -15,9 +15,9 @@ class RenewAreaForm(forms.Form):
         if data < datetime.date.today():
             raise ValidationError(_('Invalid date - renewal in past'))
 
-        # Проверка того, то дата не выходит за "верхнюю" границу (+4 недели).
-        if data > datetime.date.today() + datetime.timedelta(month=4):
-            raise ValidationError(_('Invalid date - renewal more than 4 month ahead'))
+        # Проверка того, то дата не выходит за "верхнюю" границу (+12 недель).
+        if data > datetime.date.today() + datetime.timedelta(weeks=12):
+            raise ValidationError(_('Invalid date - renewal more than 12 weeks ahead'))
 
         # Помните, что всегда надо возвращать "очищенные" данные.
         return data

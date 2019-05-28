@@ -14,7 +14,6 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView, FormVi
 
 
 def index(request):
-
     num_areas = Area.objects.all().count()
     num_types = TypeArea.objects.all().count()
 
@@ -30,7 +29,7 @@ def index(request):
 
 class RegisterList(FormView):
     form_class = UserCreationForm
-    success_url = "accounts/register/"
+    success_url = "/accounts/register/"
     template_name = "registration/register.html"
 
     def form_valid(self, form):
@@ -42,24 +41,24 @@ class RegisterList(FormView):
 
 
 class AreaListView(generic.ListView):
-        model = Area
-        paginate_by = 10
-        context_object_name = 'area_list'
+    model = Area
+    paginate_by = 10
+    context_object_name = 'area_list'
 
 
 class TypeAreaListView(generic.ListView):
-        model = TypeArea
-        context_object_name = 'type_area_list'
+    model = TypeArea
+    context_object_name = 'type_area_list'
 
 
 class AreaDetailView(generic.DetailView):
-        model = Area
+    model = Area
 
 
 class TypeAreaDetailView(generic.DetailView):
-        model = TypeArea
-        context_object_name = 'type_area_detail.html'
-        list_filter = ('type_area',)
+    model = TypeArea
+    context_object_name = 'type_area_detail.html'
+    list_filter = ('type_area',)
 
 
 class RentalAreasByUserListView(LoginRequiredMixin, generic.ListView):
@@ -96,7 +95,7 @@ def renew_area_seller(request, pk):
         return HttpResponseRedirect(reverse('all-rent'))
 
     else:
-        proposed_renewal_date = datetime.date.today() + datetime.timedelta(month=3)
+        proposed_renewal_date = datetime.date.today() + datetime.timedelta(weeks=12)
         form = RenewAreaForm(initial={'renewal_date': proposed_renewal_date})
 
     context = {
@@ -105,5 +104,3 @@ def renew_area_seller(request, pk):
     }
 
     return render(request, 'catalog/area_renew_seller.html', context)
-
-
