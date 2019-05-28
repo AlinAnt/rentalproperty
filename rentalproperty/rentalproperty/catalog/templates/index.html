@@ -1,0 +1,16 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+<h1>Rental Property</h1>
+
+  <p>Welcome to <em>Rental property</em> here you can rent areas at competitive prices</p>
+
+<h2>There</h2>
+
+
+  <ul>
+    <li><strong>Number of Areas:</strong> {{ num_areas }}</li>
+    <li><strong>Number of types:</strong> {{ num_types}}</li>
+  </ul>
+  <p>You have visited this page {{ num_visits }}{% if num_visits == 1 %} time{% else %} times{% endif %}.</p>
+{% endblock %}

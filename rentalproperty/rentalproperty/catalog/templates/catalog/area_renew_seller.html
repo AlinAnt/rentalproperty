@@ -1,0 +1,16 @@
+{% extends "base_generic.html" %}
+{% block content %}
+
+    <h1>Renew: {{area.square}}</h1>
+    <p>Rental: {{area.status}}</p>
+    <p>{% if area.is_overend %} class="text-danger"{% endif %}>Due date: {{area.endOfRental}}</p>
+
+    <form action="" method="post">
+        {% csrf_token %}
+        <table>
+        {{ form }}
+        </table>
+        <input type="submit" value="Submit" />
+    </form>
+
+{% endblock %}

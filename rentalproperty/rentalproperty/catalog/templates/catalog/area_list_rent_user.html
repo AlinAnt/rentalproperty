@@ -1,0 +1,19 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+    <h1>Rental areas</h1>
+
+    {% if area_list %}
+    <ul>
+
+      {% for area in area_list %}
+      <li class="{% if area.is_overend %}text-danger{% endif %}">
+        <a href="{% url 'area-detail' area.pk %}">{{area.square}}</a> ({{ area.endOfRental }})
+      </li>
+      {% endfor %}
+    </ul>
+
+    {% else %}
+      <p>There are no books rent.</p>
+    {% endif %}       
+{% endblock %}

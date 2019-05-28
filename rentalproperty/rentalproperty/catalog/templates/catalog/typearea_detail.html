@@ -1,0 +1,17 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+    <h1>All {{type_area.name}}</h1>
+
+
+    <ul>
+
+      {% for type_area in type_area_list %}
+      <a href="{% url 'area-list' %}">{{area.square}}</a>
+      {% endfor %}
+    </ul>
+
+
+      <p>There are no rental area.</p>
+
+{% endblock %}

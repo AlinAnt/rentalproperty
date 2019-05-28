@@ -1,0 +1,15 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+  <h1>Square: {{ area.square }}</h1>
+
+  <p><strong>Type_Of_Area: </strong> <a href="">{{ area.typeArea }}</a></p>
+  <p><strong>Price: </strong> {{ area.price }}</p>
+  <p><strong>Year: </strong> {{ area.year }}</p>
+  <p><strong>Floor: </strong> {{ area.floor}}</p>
+  <p><strong>Communication: </strong> {% for communication in area.communication.all %} {{ communication }}{% if not forloop.last %}, {% endif %}{% endfor %}</p>
+  <p><strong>Address: </strong>{{area.address}}</p>
+  <p><strong>Status: </strong>{{area.status}}</p>
+  <p><strong>End of rental period: </strong>{{area.endOfRental}}</p>
+
+{% endblock %}
