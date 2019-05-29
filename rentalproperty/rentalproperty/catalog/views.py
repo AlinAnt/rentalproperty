@@ -36,10 +36,10 @@ class RegisterList(FormView):
     def form_valid(self, form):
         user = form.save()
         login(self.request, user)
-        return super(RegisterList, self).form_valid(form)
+        return super().form_valid(form)
 
     def form_invalid(self, form):
-        return super(RegisterList, self).form_invalid(form)
+        return super().form_invalid(form)
 
 
 class AreaListView(generic.ListView):
