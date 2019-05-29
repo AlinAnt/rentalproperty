@@ -4,15 +4,33 @@
     <h1>Area List</h1>
 
     {% if area_list %}
-    <ul>
+    <table class="table table-striped table-hover" >
+        <thead class="thread-dark">
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Square</th>
+                <th scope="col">Type Area</th>
+                <th scope="col">Rent</th>
+                <th scope="col">Price</th>
+                <th scope="col">Floor</th>
+                <th scope="col">Communication</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for area in area_list %}
+        <tr>
+            <th scope="row"></th>
+            <td><a href="{{ area.get_absolute_url }}">{{ area.square }}</a></td>
+            <td>{{ area.typeArea }}</td>
+            <td>{{ area.rent}}</td>
+            <td>{{ area.price}}</td>
+            <td>{{ area.floor}}</td>
+            <td>{{ communication.name}}</td>
+        </tr>
 
-      {% for area in area_list %}
-      <li>
-        <a href="{{ area.get_absolute_url }}">{{ area.square }}</a> ({{ area.typeArea }})
-      </li>
-      {% endfor %}
+        {% endfor %}
 
-    </ul>
+    </table>
     {% else %}
       <p>There are no areas.</p>
     {% endif %}

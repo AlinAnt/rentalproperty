@@ -1,16 +1,14 @@
 {% extends "base_generic.html" %}
 
 {% block content %}
-<h1>Rental Property</h1>
 
-  <p>Welcome to <em>Rental property</em> here you can rent areas at competitive prices</p>
+<h1 class="text-warning text-center font-weight-bold">Rental Property</h1>
 
-<h2>There</h2>
-
+  <p class ="lead">Welcome to <mark>rental property</mark> here you can rent areas at competitive prices</p>
 
   <ul>
-    <li><strong>Number of Areas:</strong> {{ num_areas }}</li>
-    <li><strong>Number of types:</strong> {{ num_types}}</li>
+    <h4>Number of areas: {{ num_areas }}</h4>
+    <h4>Number of types: {{ num_types}}</h4>
   </ul>
   <p>You have visited this page {{ num_visits }}{% if num_visits == 1 %} time{% else %} times{% endif %}.</p>
 {% endblock %}

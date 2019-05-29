@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, render_to_response
 from .models import Area, TypeArea
 from django.views import generic
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -82,7 +82,11 @@ class RentalBooksAllListView(PermissionRequiredMixin, generic.ListView):
         return Area.objects.filter(status="Busy").order_by('endOfRental')
 
 
-@staff_member_required
+class RentThisArea(generic.ListView):
+    model = TypeArea
+    template_name = 'catalog/rent_this_area.html'
+
+
 def renew_area_seller(request, pk):
     area = get_object_or_404(Area, pk=pk)
 
@@ -105,4 +109,8 @@ def renew_area_seller(request, pk):
         'area': area,
     }
 
-    return render(request, 'catalog/area_renew_seller.html', context)
+    return render(request, 'catalog/rent_this_area.html', context)
+
+
+
+

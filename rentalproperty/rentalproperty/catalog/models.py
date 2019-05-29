@@ -25,10 +25,15 @@ class Area(models.Model):
     endOfRental = models.DateField(null=True, blank=True)
     rent = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True)
 
-
     @property
     def is_overend(self):
         if self.endOfRental and date.today() > self.endOfRental:
+            return True
+        return False
+
+    @property
+    def is_free(self):
+        if self.status == "Free":
             return True
         return False
 

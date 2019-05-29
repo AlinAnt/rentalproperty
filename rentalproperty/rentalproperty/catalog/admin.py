@@ -28,7 +28,7 @@ class AreaAdmin(admin.ModelAdmin):
             'fields': ('square', 'typeArea', 'price')
         }),
         ('Detail', {
-            'fields': ('floor', 'communication', 'address', 'status', 'endOfRental', 'rent', 'begofRental')
+            'fields': ('floor', 'communication', 'address', 'status', 'endOfRental', 'rent')
         }),
     )
 

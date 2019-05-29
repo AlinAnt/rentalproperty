@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 
-  {% block title %}<title>Rental Property</title>{% endblock %}
+    {% block title %}<title>Rental Property</title>{% endblock %}
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -22,12 +22,12 @@
       <div class="col-sm-2">
       {% block sidebar %}
       <ul class="sidebar-nav">
-          <li><a href="{% url 'index' %}">Home</a></li>
-          <li><a href="{% url 'areas' %}" >All areas</a></li>
-          <li><a href="{% url 'tareas' %}">Types of areas</a></li>
+          <li><a href="{% url 'index' %}" class="badge badge-warning">Home</a></li>
+          <li><a href="{% url 'areas' %}" class="badge badge-warning" >All areas</a></li>
+          <li><a href="{% url 'tareas' %}" class="badge badge-warning">Types of areas</a></li>
       </ul>
 
-      <ul class="sidebar-nav">
+      <ul class="sidebar-nav p-3 mb-2 bg-warning text-dark">
        {% if user.is_authenticated %}
          <li>User: {{ user.get_username }}</li>
          <li><a href="{% url 'my-rent'%}">My Rental Property</a></li>
@@ -40,7 +40,7 @@
 
       {% if user.is_staff %}
       <hr/>
-      <ul class="sidebar-nav">
+      <ul class="sidebar-nav p-3 mb-2 bg-danger text-white">
       <li>Seller</li>
       <li><a href="{% url 'all-rent' %}">All rent</a></li>
       <li><a href="http://127.0.0.1:8000/admin/">Change Area</a></li>

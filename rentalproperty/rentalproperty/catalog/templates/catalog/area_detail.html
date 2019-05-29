@@ -3,7 +3,7 @@
 {% block content %}
   <h1>Square: {{ area.square }}</h1>
 
-  <p><strong>Type_Of_Area: </strong> <a href="">{{ area.typeArea }}</a></p>
+  <p><strong>Type of area: </strong> {{ area.typeArea }}</p>
   <p><strong>Price: </strong> {{ area.price }}</p>
   <p><strong>Year: </strong> {{ area.year }}</p>
   <p><strong>Floor: </strong> {{ area.floor}}</p>
@@ -11,5 +11,8 @@
   <p><strong>Address: </strong>{{area.address}}</p>
   <p><strong>Status: </strong>{{area.status}}</p>
   <p><strong>End of rental period: </strong>{{area.endOfRental}}</p>
-
+  {% if area.is_free %}
+    <button><a href = "{% url 'rent-this' %}">Rent this area </a></button>
+  {% endif %}
 {% endblock %}
+

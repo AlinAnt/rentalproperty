@@ -14,5 +14,5 @@ urlpatterns = [
     path('register/', views.RegisterList.as_view(), name='register'),
     path('myAreas/', views.RentalAreasByUserListView.as_view(), name='my-rent'),
     path('rental/', views.RentalBooksAllListView.as_view(), name='all-rent'),
-    path('area/<uuid:pk>/renew/', views.renew_area_seller, name='renew-area-seller'),
+    path('thisArea/', views.RentThisArea.as_view(), name='rent-this'),
 ]

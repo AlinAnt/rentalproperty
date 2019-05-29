@@ -1,0 +1,28 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+    <h1>Rent Area: {{area.square}}</h1>
+    <p>Rent: {{area.rent}}</p>
+    <p>{% if area.is_overdue %} class="text-danger"{% endif %}End rental date: {{area.endOfRental}}</p>
+    
+
+    <form method="post" action="">
+    {% csrf_token %}
+
+    <div>
+      <td>{{ form.username.label_tag }}</td>
+      <td>{{ form.username }}</td>
+    </div>
+    <div>
+      <td>{{ form.a.label_tag }}</td>
+      <td>{{ form.password }}</td>
+    </div>
+
+    <div>
+
+      <input type="hidden" name="next" value="{{ next }}" />
+    </div>
+
+        <input type="submit" value="Rent" />
+    </form>
+{% endblock %}
