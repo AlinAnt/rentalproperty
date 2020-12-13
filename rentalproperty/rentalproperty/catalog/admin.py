@@ -3,9 +3,6 @@ from django.contrib import admin
 # Register your models here.
 from .models import Area, TypeArea, Communication
 
-
-#admin.site.register(Area)
-#admin.site.register(TypeArea)
 admin.site.register(Communication)
 
 

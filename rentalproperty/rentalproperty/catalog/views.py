@@ -8,11 +8,9 @@ from django.shortcuts import get_object_or_404
 from django.http import HttpResponseRedirect
 from django.urls import reverse
 import datetime
-from django.contrib.admin.views.decorators import staff_member_required
 from .forms import RenewAreaForm
-from django.views.generic.edit import CreateView, UpdateView, DeleteView, FormView
-from django.contrib.auth import login, logout
-
+from django.views.generic.edit import FormView
+from django.contrib.auth import login
 
 def index(request):
     num_areas = Area.objects.all().count()
